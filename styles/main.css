@@ -10077,6 +10077,7 @@ body {
     object-fit: cover;
     position: absolute;
     opacity: 0;
+    transition: opacity 5s ease; /* 트랜지션 추가 */
 }
 
 .slider img.active {
