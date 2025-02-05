@@ -17,7 +17,6 @@
     <link href="styles/main.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Gamja+Flower|Gugi|Noto+Serif+KR|Stylish|Sunflower:300" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-
 </head>
 
 <body id="top">
@@ -82,7 +81,7 @@
                     <h2 class="h1 text-center pb-3 ww-title" style="font-family: 'Noto Serif KR', serif;">포토 갤러리</h2>
                     <div class="grid">  
                         <div class="grid-sizer"></div> 
-                        <div class="grid-item"><img src="images/gallery/1.jpg" /></div>  
+                        <div class="grid-item"><img src="images/gallery/1.jpg" ></div>  
                         <div class="grid-item"><img src="images/gallery/2.jpg" /></div>
                         <div class="grid-item"><img src="images/gallery/3.png" /></div>
                         <div class="grid-item"><img src="images/gallery/4.png" /></div>
@@ -289,13 +288,27 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+<script src="/plugin/image-Lightbox/oimage.js"></script>
 <script>
     $(document).ready(function(){
         $(".copyAccount").click(function(){
             const copystr = $(this).text();
             navigator.clipboard.writeText(copystr);
             alert('계좌번호가 복사 되었습니다.');
-        });        
+        });      
+        
+        $('.grid img').click(function(e) {
+            // $(this).listImage()
+            $(this).listImage({
+                list: [
+                    '/wedding/images/gallery/1.jpg',
+                    '/wedding/images/gallery/2.jpg',
+                    '/wedding/images/gallery/3.png',
+                    '/wedding/images/gallery/4.png',
+                    '/wedding/images/gallery/5.png',
+                ]
+            })
+        })
     });
 
     function toggleSection(element) {
@@ -331,7 +344,9 @@
     function showImage(index) {
         images.forEach((img, i) => {
             if (i === index) {
-                img.classList.add('active'); // 현재 이미지를 활성화
+                setTimeout(() => 
+                    img.classList.add('active')
+                , 700);// 현재 이미지를 활성화
             } else {
                 img.classList.remove('active'); // 나머지 이미지는 비활성화
             }
