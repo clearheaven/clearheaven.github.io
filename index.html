@@ -424,6 +424,31 @@
         }
     });
 
+
+    // document.addEventListener('DOMContentLoaded', function() {
+    //     const video = document.querySelector('video');
+    //     let scrollEnabled = false;
+        
+    //     // 초기에 스크롤 방지
+    //     disableScroll();
+        
+    //     // 5초 후에 스크롤 활성화
+    //     setTimeout(() => {
+    //         enableScroll();
+    //         scrollEnabled = true;
+    //     }, 5000);
+        
+    //     // 스크롤 비활성화 함수
+    //     function disableScroll() {
+    //         document.body.style.overflow = 'hidden';
+    //     }
+        
+    //     // 스크롤 활성화 함수
+    //     function enableScroll() {
+    //         document.body.style.overflow = 'auto';
+    //     }
+    // });
+
     function toggleSection(element) {
         const items = element.nextElementSibling.getElementsByClassName('contact-item');
         Array.from(items).forEach(item => {
