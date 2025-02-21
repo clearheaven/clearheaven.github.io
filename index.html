@@ -469,13 +469,14 @@
         msnry.layout();
     });
 
-    function enableAudio() {
-        let audio = document.getElementById("myAudio");
-        document.removeEventListener("touchstart", enableAudio); // 한 번 실행 후 이벤트 제거
-        audio.play().catch(error => console.log("재생 오류:", error));
-    }
-
-    document.addEventListener("touchstart", enableAudio); // 사용자가 화면을 터치하면 자동 재생 가능
+    document.addEventListener('DOMContentLoaded', function() {
+        // 사용자 상호작용을 기다림
+        document.addEventListener('click', function() {
+            var audio = document.getElementById('myAudio');
+            audio.muted = false;
+            audio.play();
+        }, { once: true }); // 한 번만 실행
+    });
 
     // const images = document.querySelectorAll('.slider img');
     // const slider = document.querySelector('.slider');
@@ -570,8 +571,7 @@
     
 </script>
     
-<audio id="myAudio">
-    <source src="bgm.mp3" type="audio/mpeg">
-</audio>
+
+<audio id="myAudio" src="bgm.mp3"></audio>
 </body>
 </html>
