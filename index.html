@@ -470,12 +470,18 @@
     });
 
     document.addEventListener('DOMContentLoaded', function() {
-        // 사용자 상호작용을 기다림
-        document.addEventListener('click', function() {
+        // 클릭과 터치 이벤트를 처리하는 함수
+        function playAudio() {
             var audio = document.getElementById('myAudio');
             audio.muted = false;
             audio.play();
-        }, { once: true }); // 한 번만 실행
+        }
+    
+        // 데스크톱 클릭 이벤트
+        document.addEventListener('click', playAudio, { once: true });
+        
+        // 모바일 터치 이벤트
+        document.addEventListener('touchstart', playAudio, { once: true });
     });
 
     // const images = document.querySelectorAll('.slider img');
